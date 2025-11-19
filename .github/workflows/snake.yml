@@ -8,23 +8,30 @@ on:
 jobs:
   generate-snake:
     runs-on: ubuntu-latest
-    name: Generate SVG contribution snake
 
     steps:
       - uses: actions/checkout@v3
 
+      # Generar el SVG con Platane/snk
       - uses: Platane/snk@v3
         with:
           github_user_name: toniGitH
           outputs: |
             dist/github-contribution-grid-snake.svg
 
-      - name: Commit & push
+      # Forzar que la carpeta dist exista y git pueda añadir el SVG
+      - name: Prepare dist folder
+        run: |
+          mkdir -p dist
+          if [ ! -f dist/github-contribution-grid-snake.svg ]; then
+            touch dist/github-contribution-grid-snake.svg
+          fi
+
+      # Commit y push del SVG
+      - name: Commit & Push
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          mkdir -p dist
-          touch dist/github-contribution-grid-snake.svg
           git add dist/github-contribution-grid-snake.svg
           git commit -m "Update contribution snake" || echo "No changes to commit"
           git push
