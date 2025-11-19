@@ -2,7 +2,7 @@ name: Update GitHub Contribution Snake
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # cada día a medianoche UTC
+    - cron: '*/1 * * * *'  # cada 5 minutos
   workflow_dispatch:
 
 jobs:
