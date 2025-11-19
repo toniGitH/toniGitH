@@ -23,6 +23,8 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p dist
+          touch dist/github-contribution-grid-snake.svg
           git add dist/github-contribution-grid-snake.svg
           git commit -m "Update contribution snake" || echo "No changes to commit"
           git push
