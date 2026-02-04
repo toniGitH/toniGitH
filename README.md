@@ -123,8 +123,6 @@ class ToniGitH
 
 ---
 
-<img src="https://capsule-render-self.vercel.app/api?type=waving&color=25:000000,100:fff500&height=100&section=header" width="100%"/>
-
 <div align="center">
   <em>💡 "Computers are good at following instructions, but not at reading your mind.” — Donald Knuth</em>
 </div>
